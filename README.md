@@ -1,4 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repo uses a typescript template and runs over https (localhost)
 
 ## Available Scripts
 

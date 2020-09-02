@@ -42,3 +42,24 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Setup HTTPS locally
+
+##### `Install mkcert tool`
+brew install mkcert
+
+##### `Setup mkcert on your machine (creates a CA)`
+mkcert -install
+
+## From the root of your create-react-app project, you should now run:
+##### `Create .cert directory if it doesn't exist`
+mkdir -p .cert
+
+##### `Generate the certificate (run from the root of this project)`
+mkcert -key-file ./.cert/key.pem -cert-file ./.cert/cert.pem "localhost"
+
+##### `Include SSL certificate ins start script`
+"start": "HTTPS=true SSL_CRT_FILE=./.cert/cert.pem SSL_KEY_FILE=./.cert/key.pem react-scripts start",
+
+##### `CertUtil not installed`
+apt install libnss3-tools
